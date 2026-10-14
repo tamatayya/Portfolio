@@ -5,14 +5,14 @@ import { ArrowDownRight, ArrowUpRight, Mail, Menu, MoveRight, X } from 'lucide-r
 
 const projects = {
   pt: [
-    { number: '01', title: 'Revisão Responsividade', type: 'Página com responsividade', year: '2026', description: 'Projeto simples que tem como finalidade praticar responsividade de grid layout', tone: 'project-sand', href: 'https://trabalhos-front-end.vercel.app/exercicio-15-09-26/' },
-    { number: '02', title: 'GrãoNobre', type: 'Prática de Bootstrap', year: '2026', description: 'Projeto que utiliza componentes do Framework Bootstrap', tone: 'project-charcoal', href: 'https://trabalhos-front-end.vercel.app/exercicio-22-09-26/' },
-    { number: '03', title: 'Fio&Prensa', type: 'Prática de Tailwind', year: '2026', description: 'Projeto que utiliza estilizacao em classes do Framework Tailwind', tone: 'project-stone', href: 'https://trabalhos-front-end.vercel.app/exercicio-29-09-26/' },
+    { number: '01', title: 'Revisão Responsividade', type: 'Página com responsividade', year: '2026', description: 'Projeto simples que tem como finalidade praticar responsividade de grid layout', tone: 'project-sand', href: 'https://trabalhos-front-end.vercel.app/exercicio-15-09-26/', image: '/projects/responsividade.png' },
+    { number: '02', title: 'GrãoNobre', type: 'Prática de Bootstrap', year: '2026', description: 'Projeto que utiliza componentes do Framework Bootstrap', tone: 'project-charcoal', href: 'https://trabalhos-front-end.vercel.app/exercicio-22-09-26/' ,image:'/projects/bootstrap.png' },
+    { number: '03', title: 'Fio&Prensa', type: 'Prática de Tailwind', year: '2026', description: 'Projeto que utiliza estilizacao em classes do Framework Tailwind', tone: 'project-stone', href: 'https://trabalhos-front-end.vercel.app/exercicio-29-09-26/',image:'/projects/tailwind.png' },
   ],
   en: [
-    { number: '01', title: 'Responsiveness', type: 'Responsiveness page', year: '2026', description: 'Simples project with the objective of practicing responsiveness with grid layout', tone: 'project-sand', href: 'https://github.com/tamataya' },
-    { number: '02', title: 'GrãoNobre', type: 'Bootstrap practice', year: '2026', description: 'Project that uses components from Bootstrap', tone: 'project-charcoal', href: 'https://github.com/tamataya' },
-    { number: '03', title: 'Fio&Prensa', type: 'Tailwind practice', year: '2026', description: 'Project that uses styling with classes from Tailwind Framework', tone: 'project-stone', href: 'https://trabalhos-front-end.vercel.app/exercicio-29-09-26/' },
+    { number: '01', title: 'Responsiveness', type: 'Responsiveness page', year: '2026', description: 'Simples project with the objective of practicing responsiveness with grid layout', tone: 'project-sand', href: 'https://github.com/tamataya',image: '/projects/responsividade.png' },
+    { number: '02', title: 'GrãoNobre', type: 'Bootstrap practice', year: '2026', description: 'Project that uses components from Bootstrap', tone: 'project-charcoal', href: 'https://github.com/tamataya' ,image: '/projects/bootstrap.png'},
+    { number: '03', title: 'Fio&Prensa', type: 'Tailwind practice', year: '2026', description: 'Project that uses styling with classes from Tailwind Framework', tone: 'project-stone', href: 'https://trabalhos-front-end.vercel.app/exercicio-29-09-26/',image: '/projects/tailwind.png' },
   ],
 } as const
 
@@ -78,7 +78,7 @@ export default function Page() {
         </button>
       </header>
 
-      <div className="floating-socials" aria-label="Redes sociais"><a href="https://www.instagram.com/tamataya" target="_blank" rel="noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" strokeWidth="1.6" /><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="1.6" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" /></svg></a><a href="https://www.linkedin.com/in/tamataya" target="_blank" rel="noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9v9M6 6.2v.1M10 18v-5a3 3 0 0 1 6 0v5M10 9v9" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg></a></div>
+      <div className="floating-socials" aria-label="Redes sociais"><a href="https://www.instagram.com/tamatayya" target="_blank" rel="noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" strokeWidth="1.6" /><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="1.6" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" /></svg></a><a href="https://www.linkedin.com/in/matheus-tamataya/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9v9M6 6.2v.1M10 18v-5a3 3 0 0 1 6 0v5M10 9v9" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg></a></div>
 
       <section className="hero architectural-grid" id="top">
         <div className="hero-meta"><span>Web developer</span><span>Brazil · 2026</span></div>
@@ -97,7 +97,12 @@ export default function Page() {
         </div>
         <div className="project-carousel" aria-live="polite">
           <a key={localizedProjects[activeProject].number} className={`project-card ${localizedProjects[activeProject].tone}`} href={localizedProjects[activeProject].href} target="_blank" rel="noreferrer">
-            <div className="project-image-slot" role="img" aria-label={`Preview do projeto ${localizedProjects[activeProject].title}`}><span className="image-slot-ratio">16:9</span></div>
+            <div className="project-image-slot">
+              <img
+                src={localizedProjects[activeProject].image}
+                alt={`Preview do projeto ${localizedProjects[activeProject].title}`}
+              />
+            </div>
             <div className="project-card-top"><span>{localizedProjects[activeProject].number} — {localizedProjects[activeProject].type}</span><ArrowUpRight aria-hidden="true" /></div>
             <div className="project-card-bottom"><h3>{localizedProjects[activeProject].title}</h3><p>{localizedProjects[activeProject].description}</p><span className="view-project">{text.view} <MoveRight aria-hidden="true" /></span></div>
           </a>
@@ -108,15 +113,15 @@ export default function Page() {
 
       <section className="about-section section-frame" id="about">
         <div className="about-copy"><p className="eyebrow">{text.aboutEyebrow}</p><h2>{text.aboutTitle}</h2><p className="about-text">{text.aboutText}</p><a className="cv-link" href="/cv-matheus-tamataya.pdf" download>{text.download} <ArrowDownRight aria-hidden="true" /></a></div>
-        <div className="about-photo" role="img" aria-label="Foto de Matheus Yukio Tamataya"><img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/icon-H7HT2FnROzncq4WYTadz3Fy1Kx6YA8.jpg" alt="Foto de Matheus Yukio Tamataya" /></div>
+        <div className="about-photo" role="img" aria-label="Foto de Matheus Yukio Tamataya"><img src="/MatheusTamataya.png" alt="Foto de Matheus Yukio Tamataya" /></div>  
       </section>
 
       <section className="contact-section section-frame" id="contact">
-        <div className="contact-copy"><p className="eyebrow">{text.contactEyebrow}</p><h2>{text.contactTitle}</h2><div className="contact-details"><a href="mailto:hello@tamataya.dev"><Mail aria-hidden="true" /> hello@tamataya.dev</a><a href="https://github.com/tamataya" target="_blank" rel="noreferrer"><span aria-hidden="true">◉</span> github.com/tamataya</a></div></div>
+        <div className="contact-copy"><p className="eyebrow">{text.contactEyebrow}</p><h2>{text.contactTitle}</h2><div className="contact-details"><a href="mailto:matheustamatayya@gmail.com"><Mail aria-hidden="true" /> matheustamatayya@gmail.com</a><a href="https://github.com/tamatayya" target="_blank" rel="noreferrer"><span aria-hidden="true">◉</span> github.com/tamatayya</a></div></div>
         <form className="contact-form" onSubmit={submitContact}><div className="form-top"><p className="eyebrow">{text.start}</p><h3>{text.formTitle}</h3></div><label>{text.name}<input required name="name" placeholder={text.namePlaceholder} /></label><label>{text.email}<input required type="email" name="email" placeholder={text.emailPlaceholder} /></label><label>{text.message}<textarea required name="message" rows={4} placeholder={text.messagePlaceholder} /></label><button type="submit">{sent ? text.sent : text.send} <ArrowUpRight aria-hidden="true" /></button>{sent && <p className="form-success" role="status">{text.thanks}</p>}</form>
       </section>
 
-      <footer className="site-footer"><span>MYT® — Matheus Yukio Tamataya</span><span>Built with care / 2026</span><div className="social-links"><a href="https://github.com/tamataya" target="_blank" rel="noreferrer">GitHub</a><a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a></div></footer>
+      <footer className="site-footer"><span>MYT® — Matheus Yukio Tamataya</span><span>Built with care / 2026</span><div className="social-links"><a href="https://github.com/tamatayya" target="_blank" rel="noreferrer">GitHub</a><a href="https://www.linkedin.com/in/matheus-tamataya/" target="_blank" rel="noreferrer">LinkedIn</a></div></footer>
     </main>
     </>
   )
