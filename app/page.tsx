@@ -112,7 +112,7 @@ export default function Page() {
       </section>
 
       <section className="about-section section-frame" id="about">
-        <div className="about-copy"><p className="eyebrow">{text.aboutEyebrow}</p><h2>{text.aboutTitle}</h2><p className="about-text">{text.aboutText}</p><a className="cv-link" href="/cv-matheus-tamataya.pdf" download>{text.download} <ArrowDownRight aria-hidden="true" /></a></div>
+        <div className="about-copy"><p className="eyebrow">{text.aboutEyebrow}</p><h2>{text.aboutTitle}</h2><p className="about-text">{text.aboutText}</p><a className="cv-link" href="/CurriculoMatheusTamataya.pdf" download>{text.download} <ArrowDownRight aria-hidden="true" /></a></div>
         <div className="about-photo" role="img" aria-label="Foto de Matheus Yukio Tamataya"><img src="/MatheusTamataya.png" alt="Foto de Matheus Yukio Tamataya" /></div>  
       </section>
 
