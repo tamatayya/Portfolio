@@ -29,6 +29,8 @@ export default function Page() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [sent, setSent] = useState(false)
   const [typedName, setTypedName] = useState('')
+  const [sending, setSending] = useState(false)
+  const [error, setError] = useState(false)
 
   useEffect(() => {
     if (locale === null) return
@@ -52,10 +54,27 @@ export default function Page() {
     return () => window.clearInterval(typingTimer)
   }, [locale])
 
-  function submitContact(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault()
+
+  async function submitContact(event: FormEvent<HTMLFormElement>) {
+  event.preventDefault()
+  const form = event.currentTarget
+  setSending(true)
+  setError(false)
+  try {
+    const res = await fetch('https://formspree.io/f/xljgakao', {
+      method: 'POST',
+      headers: { Accept: 'application/json' },
+      body: new FormData(form),
+    })
+    if (!res.ok) throw new Error()
     setSent(true)
+    form.reset()
+  } catch {
+    setError(true)
+  } finally {
+    setSending(false)
   }
+}
 
   return (
     <>
@@ -118,7 +137,7 @@ export default function Page() {
 
       <section className="contact-section section-frame" id="contact">
         <div className="contact-copy"><p className="eyebrow">{text.contactEyebrow}</p><h2>{text.contactTitle}</h2><div className="contact-details"><a href="mailto:matheustamatayya@gmail.com"><Mail aria-hidden="true" /> matheustamatayya@gmail.com</a><a href="https://github.com/tamatayya" target="_blank" rel="noreferrer"><span aria-hidden="true">◉</span> github.com/tamatayya</a></div></div>
-        <form className="contact-form" onSubmit={submitContact}><div className="form-top"><p className="eyebrow">{text.start}</p><h3>{text.formTitle}</h3></div><label>{text.name}<input required name="name" placeholder={text.namePlaceholder} /></label><label>{text.email}<input required type="email" name="email" placeholder={text.emailPlaceholder} /></label><label>{text.message}<textarea required name="message" rows={4} placeholder={text.messagePlaceholder} /></label><button type="submit">{sent ? text.sent : text.send} <ArrowUpRight aria-hidden="true" /></button>{sent && <p className="form-success" role="status">{text.thanks}</p>}</form>
+        <form className="contact-form" onSubmit={submitContact}><div className="form-top"><p className="eyebrow">{text.start}</p><h3>{text.formTitle}</h3></div><label>{text.name}<input required name="name" placeholder={text.namePlaceholder} /></label><label>{text.email}<input required type="email" name="email" placeholder={text.emailPlaceholder} /></label><label>{text.message}<textarea required name="message" rows={4} placeholder={text.messagePlaceholder} /></label><button type="submit" disabled={sending}>{sending ? '...' : sent ? text.sent : text.send} <ArrowUpRight aria-hidden="true" /></button>{sent && <p className="form-success" role="status">{text.thanks}</p>}{error && <p className="form-success" role="alert">{locale === 'en' ? 'Could not send. Please email me directly.' : 'Não foi possível enviar. Me escreva por e-mail.'}</p>}</form>
       </section>
 
       <footer className="site-footer"><span>MYT® — Matheus Yukio Tamataya</span><span>Built with care / 2026</span><div className="social-links"><a href="https://github.com/tamatayya" target="_blank" rel="noreferrer">GitHub</a><a href="https://www.linkedin.com/in/matheus-tamataya/" target="_blank" rel="noreferrer">LinkedIn</a></div></footer>
