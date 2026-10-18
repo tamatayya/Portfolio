@@ -10,8 +10,8 @@ const projects = {
     { number: '03', title: 'Fio&Prensa', type: 'Prática de Tailwind', year: '2026', description: 'Projeto que utiliza estilizacao em classes do Framework Tailwind', tone: 'project-stone', href: 'https://trabalhos-front-end.vercel.app/exercicio-29-09-26/',image:'/projects/tailwind.png' },
   ],
   en: [
-    { number: '01', title: 'Responsiveness', type: 'Responsiveness page', year: '2026', description: 'Simples project with the objective of practicing responsiveness with grid layout', tone: 'project-sand', href: 'https://github.com/tamataya',image: '/projects/responsividade.png' },
-    { number: '02', title: 'GrãoNobre', type: 'Bootstrap practice', year: '2026', description: 'Project that uses components from Bootstrap', tone: 'project-charcoal', href: 'https://github.com/tamataya' ,image: '/projects/bootstrap.png'},
+    { number: '01', title: 'Responsiveness', type: 'Responsiveness page', year: '2026', description: 'Simples project with the objective of practicing responsiveness with grid layout', tone: 'project-sand', href: 'https://trabalhos-front-end.vercel.app/exercicio-15-09-26/',image: '/projects/responsividade.png' },
+    { number: '02', title: 'GrãoNobre', type: 'Bootstrap practice', year: '2026', description: 'Project that uses components from Bootstrap', tone: 'project-charcoal', href: 'https://trabalhos-front-end.vercel.app/exercicio-22-09-26/' ,image: '/projects/bootstrap.png'},
     { number: '03', title: 'Fio&Prensa', type: 'Tailwind practice', year: '2026', description: 'Project that uses styling with classes from Tailwind Framework', tone: 'project-stone', href: 'https://trabalhos-front-end.vercel.app/exercicio-29-09-26/',image: '/projects/tailwind.png' },
   ],
 } as const
