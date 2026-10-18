@@ -102,7 +102,6 @@ Durante o desenvolvimento deste projeto foram aplicados conceitos como:
 ## 🚀 Melhorias futuras
 
 * 💾 Lembrar o idioma escolhido e detectar o idioma do navegador.
-* 🔗 Corrigir os links dos projetos 01 e 02 na versão em inglês, que apontam para um perfil do GitHub com grafia diferente.
 * 🧩 Dividir a página em componentes menores (Hero, Projetos, Sobre, Contato) e mover os textos para arquivos de tradução.
 * 📄 Criar páginas individuais para cada projeto, com detalhes e tecnologias usadas.
 * ➕ Adicionar mais projetos, como o LojaGamer.
